@@ -31,7 +31,7 @@ skinparam useBetaStyle false
 skinparam defaultFontName       "Verdana"
 skinparam defaultFontSize       12
 skinparam dpi                   300
-skinparam shadowing             false
+skinparam shadowing             true
 skinparam roundcorner           8
 skinparam ParticipantPadding    40
 skinparam BoxPadding            40

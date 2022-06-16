@@ -5,7 +5,7 @@
 '' Author: Brett Schwarz
 '' Copyright (c) 2020 by Brett Schwarz
 
-!$THEME = "ssiiot"
+!$THEME = "sandstone"
 
 !if %not(%variable_exists("$BGCOLOR"))
 !$BGCOLOR = "transparent"
@@ -85,137 +85,21 @@ skinparam useBetaStyle false
 	BorderColor $PRIMARY_DARK
 	BackgroundColor $PRIMARY
 !endprocedure
-''
-'' Style settings
-''
-<style>
-  root {
-    BackgroundColor $BGCOLOR
-    FontColor $PRIMARY_TEXT
-    HyperLinkColor $ORANGE
-    LineColor $PRIMARY_DARK
-    LineThickness 1
-    Margin 10
-    Padding 6
-    Shadowing 0.0
-  }
-  node {
-   Padding 15
-   roundcorner 20
-   BackgroundColor $PRIMARY-$PRIMARY_DARK
-  }
-  caption {
-    LineThickness 0
-  }
-  footer {
-    LineThickness 0
-  }
-  groupHeader {
-    BackgroundColor $SECONDARY
-    FontColor $INFO
-    FontStyle bold
-  }
-  header {
-    LineThickness 0
-  }
-  referenceHeader {
-    BackgroundColor $BGCOLOR
-    FontColor $DARK
-    FontStyle bold
-  }
-  separator {
-    BackgroundColor $FGCOLOR
-    FontColor $BGCOLOR
-    FontStyle bold
-  }
-  title {
-	FontSize 20
-	BorderRoundCorner            8
-	BorderThickness 	         1
-	BackgroundColor  $SECONDARY_LIGHT-$SECONDARY
-	FontColor $PRIMARY
-	BorderColor $SECONDARY
-  }
-  nwdiagDiagram {
-	network {
-		$primary_scheme()    
-		LineColor $PRIMARY
-		LineThickness 1.0
-		FontColor $PRIMARY_DARK
-	}
-	server {
-		$primary_scheme()
-	}
-	arrow {
-		FontColor $PRIMARY_DARK
-		LineColor $PRIMARY_DARK
-	}
-	group {
-		BackGroundColor $LIGHT
-		LineColor $LIGHT_DARK
-		LineThickness 2.0
-		Margin 5
-		Padding 5
-	}
-  }
-  ganttDiagram {
-	task {
-		$primary_scheme()
-		LineColor $PRIMARY
-		Margin 10
-		Padding 6
-	}
-	note {
-		FontColor $INFO_TEXT
-		LineColor $INFO_DARK
-		BackGroundColor $INFO
-	}
-	separator {
-		LineColor $SECONDARY
-		BackGroundColor $SECONDARY-$SECONDARY_DARK
-		FontColor $SECONDARY_TEXT
-	}
-	milestone {
-		FontColor $INFO
-		FontSize 16
-		FontStyle italic
-		BackGroundColor $SECONDARY
-		LineColor $SECONDARY_DARK
-	}
-	timeline {
-		BackgroundColor $SECONDARY
-		FontColor $SECONDARY_TEXT
-	}
-	closed {
-		BackgroundColor $WARNING_DARK
-		FontColor $WARNING_TEXT
-	}
-  }
-</style>
+
+
 ''
 '' Global Default Values
 ''
 skinparam defaultFontName       "Verdana"
 skinparam defaultFontSize       12
-skinparam dpi                   100
+skinparam dpi                   300
 skinparam shadowing             false
 skinparam roundcorner           8
 skinparam ParticipantPadding    40
 skinparam BoxPadding            40
 skinparam Padding               5
 skinparam ArrowColor            $DARK
-skinparam stereotype {
-    CBackgroundColor $SECONDARY_LIGHT
-    CBorderColor $SECONDARY_DARK
-    ABackgroundColor $SUCCESS_LIGHT
-    ABorderColor $SUCCESS_DARK
-    IBackgroundColor $DANGER_LIGHT
-    IBorderColor $DANGER_DARK
-    EBackgroundColor $WARNING_LIGHT
-    EBorderColor $WARNING_DARK
-    NBackgroundColor $INFO_LIGHT
-    NBorderColor $INFO_DARK
-}
+
 skinparam title {
 	FontColor	                 $PRIMARY
 	BorderColor	                 $SECONDARY_DARK
@@ -225,35 +109,6 @@ skinparam title {
 	BackgroundColor              $SECONDARY_LIGHT-$SECONDARY
 }
 
-skinparam legend {
-	BackgroundColor $SECONDARY
-	BorderColor $SECONDARY_DARK
-	FontColor $LIGHT
-}
-
-!startsub swimlane
-skinparam swimlane {
-	BorderColor $INFO
-	BorderThickness 2
-	TitleBackgroundColor  $SECONDARY_LIGHT-$SECONDARY
-	TitleFontColor $PRIMARY
-}
-!endsub
-
-!startsub activity
-
-skinparam activity {
-	$primary_scheme()
-	BarColor $SUCCESS
-	StartColor $INFO
-	EndColor $INFO
-	''
-	DiamondBackgroundColor $SECONDARY_LIGHT
-  	DiamondBorderColor $SECONDARY_DARK
-  	DiamondFontColor $SECONDARY_TEXT
-}
-!endsub
-
 !startsub participant
 
 skinparam participant {
@@ -262,17 +117,10 @@ skinparam participant {
 }
 !endsub
 
-!startsub actor
-
-skinparam actor {
-	$primary_scheme()
-}
-!endsub
-
 !startsub arrow
 
 skinparam arrow {
-	Thickness 3
+	Thickness 1
 	Color $PRIMARY
 	FontColor $FGCOLOR
 }
@@ -319,49 +167,10 @@ skinparam sequence {
 }
 !endsub
 
-!startsub partition
-
-skinparam partition {
-	BorderColor $PRIMARY
-	FontColor $PRIMARY
-	BackgroundColor $BGCOLOR
-}
-!endsub
-
-!startsub collections
-
-skinparam collections {
-	$primary_scheme()
-}
-!endsub
-
-!startsub control
-
-skinparam control {
-	$primary_scheme()
-}
-!endsub
-
 !startsub entity
 
 skinparam entity {
 	$primary_scheme()
-}
-!endsub
-
-!startsub boundary
-
-skinparam boundary {
-	$primary_scheme()
-}
-!endsub
-
-!startsub agent
-
-skinparam agent {
-	BackgroundColor $WARNING
-	BorderColor $WARNING_LIGHT
-	FontColor $DARK
 }
 !endsub
 
@@ -372,180 +181,5 @@ skinparam note {
 	BackgroundColor $INFO
 	BorderColor $INFO_DARK
 	FontColor $WHITE
-}
-!endsub
-
-!startsub artifact
-
-skinparam artifact {
-	BackgroundColor $DARK
-	BorderColor $DARK_DARK
-	FontColor $LIGHT
-}
-!endsub
-
-!startsub component
-
-skinparam component {
-	$primary_scheme()
-}
-!endsub
-
-!startsub interface
-
-skinparam interface {
-	BackgroundColor  $DANGER_DARK
-	BorderColor  $DANGER
-	FontColor $DARK
-}
-!endsub
-
-!startsub storage
-
-skinparam storage {
-	BackgroundColor $WARNING
-  	BorderColor $WARNING_DARK
-	FontColor $WARNING_TEXT
-}
-!endsub
-
-!startsub node
-
-skinparam node {
-	BackgroundColor  $SECONDARY
-	BorderColor $LIGHT
-	FontColor $LIGHT
-}
-!endsub
-
-!startsub cloud
-
-skinparam cloud {
-	BackgroundColor #F2FCFE-#eeeeee
-	BorderColor #F2FCFE
-	FontColor $DARK
-}
-!endsub
-
-!startsub database
-
-skinparam database {
-	$primary_scheme()
-}
-!endsub
-
-!startsub class
-
-skinparam class {
-	$primary_scheme()
-	HeaderBackgroundColor $PRIMARY_LIGHT
-	StereotypeFontColor $DARK
-	BorderThickness 1
-	AttributeFontColor $PRIMARY_TEXT
-	AttributeFontSize 11
-}
-!endsub
-
-!startsub object
-
-skinparam object {
-	$primary_scheme()
-	StereotypeFontColor $DARK
-	BorderThickness 1
-	AttributeFontColor $SECONDARY_TEXT
-	AttributeFontSize 11
-}
-!endsub
-
-!startsub usecase
-
-skinparam usecase {
-	$primary_scheme()
-	BorderThickness 2
-	StereotypeFontColor $PRIMARY
-}
-!endsub
-
-!startsub rectangle
-
-skinparam rectangle {
-	$primary_scheme()
-	BackgroundColor $SECONDARY_LIGHT
-	BorderThickness 2
-	StereotypeFontColor $PRIMARY
-}
-!endsub
-
-!startsub package
-
-skinparam package {
-	BackgroundColor $SECONDARY
-  	BorderColor $PRIMARY
-	FontColor $PRIMARY
-	BorderThickness 2
-}
-!endsub
-
-!startsub folder
-
-skinparam folder {
-	BackgroundColor $SECONDARY_LIGHT
-  	BorderColor $WARNING
-	FontColor $WARNING
-	BorderThickness 2
-}
-!endsub
-
-!startsub frame
-
-skinparam frame {
-	BackgroundColor $SECONDARY_LIGHT
-  	BorderColor $INFO
-	FontColor $INFO
-	BorderThickness 2
-}
-!endsub
-
-!startsub state
-
-skinparam state {
-	$primary_scheme()
-	BackgroundColor $PRIMARY_LIGHT
-	StartColor $INFO
-	EndColor $INFO
-	AttributeFontColor $SECONDARY_TEXT
-	AttributeFontSize 11
-}
-!endsub
-
-!startsub queue
-
-skinparam queue {
-	$primary_scheme()
-}
-!endsub
-
-!startsub card
-
-skinparam card {
-	BackgroundColor $INFO
-	BorderColor $INFO_DARK
-	FontColor $INFO_TEXT
-}
-!endsub
-
-!startsub file
-
-skinparam file {
-	BackgroundColor $SECONDARY_DARK
-	BorderColor $LIGHT
-	FontColor $LIGHT
-}
-!endsub
-
-!startsub stack
-
-skinparam stack {
-	$primary_scheme()
 }
 !endsub

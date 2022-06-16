@@ -5,10 +5,10 @@
 '' Author: Brett Schwarz
 '' Copyright (c) 2020 by Brett Schwarz
 
-!$THEME = "sandstone"
+!$THEME = "ssiiot"
 
 !if %not(%variable_exists("$BGCOLOR"))
-!$BGCOLOR = "transparent"
+!$BGCOLOR = "#ffffff"
 !endif
 
 skinparam backgroundColor $BGCOLOR
@@ -17,74 +17,12 @@ skinparam useBetaStyle false
 ''
 '' Colors taken from the css file of the BS theme
 ''
-!$BLUE = "#325d88"
-!$INDIGO = "#6610f2"
-!$PURPLE = "#6f42c1"
-!$PINK = "#e83e8c"
-!$RED = "#d9534f"
-!$ORANGE = "#f47c3c"
-!$YELLOW = "#ffc107"
-!$GREEN = "#93c54b"
-!$TEAL = "#20c997"
-!$CYAN = "#29abe0"
-!$WHITE = "#fff"
-!$GRAY = "#8e8c84"
-!$GRAYDARK = "#3e3f3a"
-!$PRIMARY = "#325d88"
-!$SECONDARY = "#8e8c84"
-!$SUCCESS = "#93c54b"
-!$INFO = "#29abe0"
-!$WARNING = "#f47c3c"
-!$DANGER = "#d9534f"
-!$LIGHT = "#f8f5f0"
-!$DARK = "#3e3f3a"
 
-'' *_DARK = tint (lighter) of the main color of 80%
-''          where TINT is calculated by clr + (255-clr) * tint_factor
-'' *_LIGHT = shade (darker) of the main color of 80%
-''          and SHADE is calculated by clr * (1 - shade_factor)
-''
-!$FGCOLOR = $WHITE
-!$PRIMARY_DARK = "#2d547a"
-!$PRIMARY_LIGHT = "#476d94"
-!$PRIMARY_TEXT = $WHITE
-!$SECONDARY_DARK = "#807e77"
-!$SECONDARY_LIGHT = "#999890"
-!$SECONDARY_TEXT = $WHITE
-!$INFO_DARK = "#259aca"
-!$INFO_LIGHT = "#3eb3e3"
-!$INFO_TEXT = $WHITE
-!$SUCCESS_DARK = "#84b144"
-!$SUCCESS_LIGHT = "#9ecb5d"
-!$SUCCESS_TEXT = $WHITE
-!$WARNING_DARK = "#dc7036"
-!$WARNING_LIGHT = "#f58950"
-!$WARNING_TEXT = $WHITE
-!$DANGER_DARK = "#c34b47"
-!$DANGER_LIGHT = "#AE423F"
-!$DANGER_TEXT = $WHITE
-!$DARK_DARK = "#383934"
-!$DARK_LIGHT = "#51524e"
-!$LIGHT_DARK = "#dfddd8"
-!$LIGHT_LIGHT = "#f9f6f2"
-
-!procedure $success($msg)
-  <font color=$SUCCESS><b>$msg
-!endprocedure
-
-!procedure $failure($msg)
-  <font color=$DANGER><b>$msg
-!endprocedure
-
-!procedure $warning($msg)
-  <font color=$WARNING><b>$msg
-!endprocedure
-
-!procedure $primary_scheme()
-	FontColor $PRIMARY_TEXT
-	BorderColor $PRIMARY_DARK
-	BackgroundColor $PRIMARY
-!endprocedure
+!$SEQ_BASE = "#91c3fd"
+!$SEQ_ARROW = "#fc71ff"
+!$SEQ_NOTE = "#b5e1b3"
+!$SEQ_GROUP = "#fdb471"
+!$SEQ_GROUP_HEADER = "#fedfc1"
 
 
 ''
@@ -98,22 +36,13 @@ skinparam roundcorner           8
 skinparam ParticipantPadding    40
 skinparam BoxPadding            40
 skinparam Padding               5
-skinparam ArrowColor            $DARK
-
-skinparam title {
-	FontColor	                 $PRIMARY
-	BorderColor	                 $SECONDARY_DARK
-	FontSize	    	         20
-	BorderRoundCorner            8
-	BorderThickness 	         1
-	BackgroundColor              $SECONDARY_LIGHT-$SECONDARY
-}
+skinparam ArrowColor            $SEQ_ARROW
 
 !startsub participant
 
 skinparam participant {
 	$primary_scheme()
-	ParticipantBorderThickness 2
+	ParticipantBorderThickness 1
 }
 !endsub
 
@@ -121,49 +50,21 @@ skinparam participant {
 
 skinparam arrow {
 	Thickness 1
-	Color $PRIMARY
-	FontColor $FGCOLOR
+	Color $SEQ_ARROW
 }
 !endsub
 
 !startsub sequence
 
 skinparam sequence {
-	BorderColor $PRIMARY
-	' For some reason sequence title font color does not pick up from global
-	TitleFontColor $PRIMARY
+
 	BackgroundColor $BGCOLOR
-	StartColor $PRIMARY
-	EndColor $PRIMARY
 	''
-	BoxBackgroundColor $BGCOLOR
-	BoxBorderColor $DARK
-	BoxFontColor $DARK
+	LifeLineBorderColor $SEQ_BASE
+	LifeLineBorderThickness 1
 	''
-	DelayFontColor $DARK
-	''
-	LifeLineBorderColor $SECONDARY
-	LifeLineBorderThickness 2
-	LifeLineBackgroundColor $SECONDARY_DARK
-	''
-	GroupBorderColor $DARK
-	GroupFontColor $DARK
-	GroupHeaderFontColor $INFO
-	GroupBackgroundColor $SECONDARY
-	GroupHeaderBackgroundColor $BGCOLOR
-	''
-	DividerBackgroundColor $DARK
-    DividerBorderColor $DARK
-    DividerBorderThickness 2
-    DividerFontColor $LIGHT
-	''
-	ReferenceBackgroundColor $BGCOLOR
-	ReferenceBorderColor $DARK
-	ReferenceFontColor $DARK
-	ReferenceHeaderFontColor $INFO
-	ReferenceHeaderBackgroundColor $SECONDARY
-	''
-	StereotypeFontColor $PRIMARY_TEXT
+	GroupBorderColor $SEQ_GROUP
+	GroupHeaderBackgroundColor $SEQ_GROUP_HEADER
 }
 !endsub
 
@@ -178,8 +79,7 @@ skinparam entity {
 
 skinparam note {
 	BorderThickness 1
-	BackgroundColor $INFO
-	BorderColor $INFO_DARK
-	FontColor $WHITE
+	BackgroundColor #ffffff
+	BorderColor $SEQ_NOTE
 }
 !endsub

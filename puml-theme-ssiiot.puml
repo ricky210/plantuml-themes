@@ -1,85 +1,27 @@
-''
-'' superhero theme based off of the bootstrap theme of the same name
-'' https://bootswatch.com/sandstone/
-''
-'' Author: Brett Schwarz
-'' Copyright (c) 2020 by Brett Schwarz
-
-!$THEME = "ssiiot"
-
-!if %not(%variable_exists("$BGCOLOR"))
-!$BGCOLOR = "#ffffff"
-!endif
-
-skinparam backgroundColor $BGCOLOR
-skinparam useBetaStyle false
-
-''
-'' Colors taken from the css file of the BS theme
-''
-
-!$SEQ_BASE = "#91c3fd"
-!$SEQ_ARROW = "#fc71ff"
-!$SEQ_NOTE = "#b5e1b3"
-!$SEQ_GROUP = "#fdb471"
-!$SEQ_GROUP_HEADER = "#fedfc1"
-
-
-''
-'' Global Default Values
-''
-skinparam defaultFontName       "Verdana"
-skinparam defaultFontSize       12
-skinparam dpi                   300
-skinparam shadowing             true
-skinparam roundcorner           8
-skinparam ParticipantPadding    40
-skinparam BoxPadding            40
-skinparam Padding               5
-skinparam ArrowColor            $SEQ_ARROW
-
-!startsub participant
-
-skinparam participant {
-	$primary_scheme()
-	ParticipantBorderThickness 1
+<style>
+	note {
+		LineColor #b5e1b3
+        LineThickness 1
+        BackgroundColor #ffffff
+	}
+</style>
+skinparam {
+	Arrow {
+    	Color #fc71ff
+        Thickness 1
+    }
+    
+    Participant {
+    	BorderColor #91c3fd
+      	BorderThickness 1
+    	BackgroundColor #ffffff
+    }
+    
+    Sequence {
+    	Group {
+        	BorderColor #fdb471
+            BorderThickness 1
+            BackgroundColor #fedfc1
+        }
+    }
 }
-!endsub
-
-!startsub arrow
-
-skinparam arrow {
-	Thickness 1
-	Color $SEQ_ARROW
-}
-!endsub
-
-!startsub sequence
-
-skinparam sequence {
-
-	BackgroundColor $BGCOLOR
-	''
-	LifeLineBorderColor $SEQ_BASE
-	LifeLineBorderThickness 1
-	''
-	GroupBorderColor $SEQ_GROUP
-	GroupHeaderBackgroundColor $SEQ_GROUP_HEADER
-}
-!endsub
-
-!startsub entity
-
-skinparam entity {
-	$primary_scheme()
-}
-!endsub
-
-!startsub note
-
-skinparam note {
-	BorderThickness 1
-	BackgroundColor #ffffff
-	BorderColor $SEQ_NOTE
-}
-!endsub

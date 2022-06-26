@@ -1,4 +1,4 @@
 # ドローン
-```plantuml
+```puml
 Alice->Bob: hello world!
 ```
